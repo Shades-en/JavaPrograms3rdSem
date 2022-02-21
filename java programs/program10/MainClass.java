@@ -1,101 +1,95 @@
 package program10;
 
-import java.util.Scanner;
+import java.util.*;
+
 import program10.ISE.ISE_department;
-import program10.Faculty;
-public class MainClass{
 
-    public static void main(String[] args){
-      Scanner sc = new Scanner(System.in);
-        Faculty f[] = new Faculty[10]; //Array of faculty objects.
-        int counter = 0;
-        ISE_department ise = new ISE_department();
-        boolean parameter1 = false;
-        boolean parameter2 = false;
-        boolean parameter3 = false;
-        boolean parameter4 = false;
+public class mainclass {
+    public static void main(String []args) throws Exception {
+        Faculty f[] = new Faculty[20];
+        ISE_department Ise = new ISE_department();
+        int counter=0;
+        Scanner sc= new Scanner(System.in);
         while(true){
-        System.out.println("1. Enter the record of a new faculty");
-        System.out.println("2. Read the details of a particular faculty");
-        System.out.println("3. Know the details of the faculty with experience greater than 20 years");
-        System.out.println("4. Know the number of designations a particular faculty had");
-        System.out.println("5. Know the number of research consultancy projects a particular faculty did");
-        System.out.println("6. Exit!");
+            System.out.println("1. Enter the details of the faculty");
+            if(counter>0){
+                System.out.println("2. Read the details of a faculty member");
+                System.out.println("3. Know the details of faculty members with age >= 20");
+                System.out.println("4. Print the number of designations of the faculty member");
+                System.out.println("5. Print the number of consultancy projects of the faculty");
+                System.out.println("6. Exit");
+            }
 
-
-            System.out.println("Enter your choice");
-            int ch = sc.nextInt();
-
+            System.out.println("Enter the choice");
+            int ch= sc.nextInt();
             switch(ch){
                 case 1:
-                        f[counter] = new Faculty();
-                        ise.readData(f[counter]);
-                        counter++;
-                        break;
-                
+                    f[counter] = new Faculty();
+                    Ise.readdata(f[counter++]);
+                    break;
+
                 case 2:
-                        System.out.println("Enter the name of the faculty whose details you wanna print");
-                        String name = sc.next();
-                        for(int i=0;i<counter;i++){
-                            if(name.equals(f[i].name)){
-                                ise.printData(f[i]);
-                                parameter1 = true;
-                              	break;
-                            }
+                    System.out.println("Enter the name of the faculty member to read");
+                    String name= sc.next();
+                    Boolean p1=false;
+                    for(int i=0;i<counter;i++){
+                        if(f[i].name.equals(name)){
+                            Ise.printdata(f[i]);
+                            p1=true;
                         }
-                        if(parameter1 == false){
-                            System.out.println("Faculty not found!");
-                        }
-                        break;
+                    }
+                    if(p1==false)
+                        System.out.println("Faculty not found");
+                    break;
+
                 case 3:
-                        System.out.println("The faculty with experience greater than 20 years are:");
-                        for(int i=0;i<counter;i++){
-                            if(f[i].years_of_experience >= 20){
-                                System.out.println(f[i].name);
-                                parameter2 = true;
-                            }
+                    System.out.println("The details are");
+                    p1=false;
+                    for(int i=0;i<counter;i++){
+                        if(f[i].years_of_experience>=20){
+                            Ise.printdata(f[i]);
+                            p1=true;
                         }
+                    }
+                    if(p1==false)
+                        System.out.println("Faculty not found");
+                    break;
 
-                        if(parameter2 == false){
-                            System.out.println("Record not found!");
-                        }
-                        break;
                 case 4:
-
-                        System.out.println("Enter the name of the faculty:");
-                        name = sc.next();
-                        for(int i=0;i<counter;i++){
-                            if(name.equals(f[i].name)){
-                                ise.print_number_designations(f[i]);
-                                parameter3 = true;
-                                break;
-                            }
+                    System.out.println("Enter the name of the faculty member to read");
+                    name= sc.next();
+                    p1=false;
+                    for(int i=0;i<counter;i++){
+                        if(f[i].name.equals(name)){
+                            Ise.printNumberDesignations(f[i]);
+                            p1=true;
                         }
-                        if(parameter3 == false){
-                            System.out.println("Record not found!");
-                        }
-                        break;
+                    }
+                    if(p1==false)
+                        System.out.println("Faculty not found");
+                    break;
+                    
                 case 5:
-                        System.out.println("Enter the name of the faculty:");
-                        name = sc.next();
-                        for(int i=0;i<counter;i++){
-                            if(name.equals(f[i].name)){
-                                ise.number_research_consultancy_projs(f[i]);
-                                parameter4 = true;
-                                break;
-                            }
+                    System.out.println("Enter the name of the faculty member to read");
+                    name= sc.next();
+                    p1=false;
+                    for(int i=0;i<counter;i++){
+                        if(f[i].name.equals(name)){
+                            Ise.print_number_research_consultancy_projs(f[i]);
+                            p1=true;
                         }
-                        if(parameter4 == false){
-                            System.out.println("Record not found!");
-                        }
-                        break;
-                        
-              case 6:
-                		System.exit(0);
-                		break;
-              default:
-                		System.out.println("INVALID CHOICE!");
+                    }
+                    if(p1==false)
+                        System.out.println("Faculty not found");
+                    break;
+                
+                case 6:
+                    System.exit(0);
+
+                default:
+                    System.out.println("Wrong choice");
             }
         }
+        
     }
 }
