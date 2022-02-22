@@ -17,7 +17,6 @@ public class ISE_department implements Department{
         System.out.println("Enter the age of faculty");
         f.age=sc.nextInt();
         if(f.age>58){
-            sc.close();
             throw new Exception("AgeException");
         }
         System.out.println("Enter years of expirience");

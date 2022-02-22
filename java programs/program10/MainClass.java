@@ -14,7 +14,7 @@ public class mainclass {
             System.out.println("1. Enter the details of the faculty");
             if(counter>0){
                 System.out.println("2. Read the details of a faculty member");
-                System.out.println("3. Know the details of faculty members with age >= 20");
+                System.out.println("3. Know the details of faculty members with experience >= 20");
                 System.out.println("4. Print the number of designations of the faculty member");
                 System.out.println("5. Print the number of consultancy projects of the faculty");
                 System.out.println("6. Exit");

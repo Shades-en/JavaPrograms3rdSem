@@ -22,11 +22,15 @@ public class QueueC {
                     break;
                 
                 case 2:
-                    System.out.println("The removed element is "+ Q.remove(0));
+                    if(Q.isEmpty()){
+                        System.out.println("Empty queue");
+                    }
+                    else
+                        System.out.println("The removed element is "+ Q.remove(0));
                     break;
 
                 case 3:
-                    if(Q.size()==0){
+                    if(Q.isEmpty()){
                         System.out.println("Empty queue");
                     }
                     else{
