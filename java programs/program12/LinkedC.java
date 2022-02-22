@@ -28,9 +28,9 @@ public class LinkedC {
                         Boolean x =false;
                         Iterator<String> itr = ll.iterator();
                         while(itr.hasNext()){
-                            x=true;
                             String e=itr.next();
                             if(e.length()<5){
+                                x=true;
                                 System.out.println(e);
                             }    
                         }
