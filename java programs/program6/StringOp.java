@@ -1,6 +1,7 @@
 package program6;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Arrays;
 
 class StringOp{
     public static void main(String[] args) {
