@@ -1,31 +1,28 @@
 package program1;
 
-import java.util.*;
+import java.util.Scanner;
 
-public class Prime{
-    void primeNo(int n){
-        int flag=0;
-        for(int i=2;i<n;i++){
-            if(i!=n){
-                if(n%i==0){
-                    flag=1;
-                }
-            }
+public class prime {
+    static boolean isPrime(int n){
+        if(n==2)
+            return true;
+        else{
+            for(int i=2;i<n-1;i++){
+                if(n%i==0)
+                    return false;
+            }return true;
         }
-        if (n==0){
-            System.out.println("it is neither prime nor composite");
-        }else if(flag==1 || n==1){
-            System.out.println("it is not a prime number");
-        }else{
-            System.out.println("it is a prime number");
-        }
+        
     }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number");
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter a number to check");
         int n= sc.nextInt();
-        Prime prime = new Prime();
-        prime.primeNo(n);
-        sc.close();
+        if(n==1|| n==0){
+            System.out.println("Neither prime nor composite");
+        }
+        else{
+            System.out.println(isPrime(n));
+        }
     }
 }
